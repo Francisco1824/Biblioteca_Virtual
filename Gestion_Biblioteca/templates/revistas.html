@@ -28,7 +28,7 @@
             <div class="row">
                 {% for producto in revistas %}
                 <div class="card" style="width:100; margin: 5px 5px; text-align:center; display:inline-table" >
-                    <img src="{{producto.Imagen.url}}" class="card-img-top" width="180" height="200"/>
+                    <img src="{{producto.Imagen}}" class="card-img-top" width="180" height="200"/>
                     <div class="card-body">
                         <h6>{{producto.Nombre}}</h6>
                         <p>{{producto.PrecioSuscripcion}}</p>
