@@ -1,0 +1,37 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Registro {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <h2>Biblioteca</h2>  
+        <strong>
+            <blockquote>Libros</blockquote>
+            <blockquote>Revistas</blockquote>
+            <blockquote>Iconograficos</blockquote>
+            <blockquote>Investigaciones - Ensayos</blockquote>
+        </strong>  
+        </div>
+
+        <div class="col-sm-8">
+            <form method="post" action="">
+                {% csrf_token %}
+
+                <div style="width: 65%; margin:auto; color:brown">
+                    
+                    {{form|crispy}}
+
+                    <button type="submit" class="btn btn-primary bg-success" >Registrate</button></br></br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

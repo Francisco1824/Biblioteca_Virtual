@@ -1,0 +1,16 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Email {% endblock %}
+
+{% block content %}
+
+<section id="Carrito">
+    Hola {{user.username}}<br/>
+    N° pedido: {{pedido.id}}<br/>
+    Email Usuario: {{emailusuario}}<br/>
+    Lineas de pedido : {{lineasuscripcion}}
+
+</section>
+
+{% endblock %}

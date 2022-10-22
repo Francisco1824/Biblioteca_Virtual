@@ -1,0 +1,50 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Carrito {% endblock %}
+
+{% block content %}
+
+        <aside id="Iconografia">
+            <header>
+                <h2>Biblioteca</h2>
+            </header>
+            <strong>
+                <blockquote>Libros</blockquote>
+                <blockquote>Revistas</blockquote>
+                <blockquote>Iconograficos</blockquote>
+                <blockquote>Investigaciones - Ensayos</blockquote>
+            </strong>
+                    
+        </aside>
+        
+        <section id="CuerpoWeb">
+            <h2>BUSCAR EN LA BIBLIOTECA</h2>
+            <form action="/DatoCliente/" method="get" target ="_parent">
+                <h3>Nombre Clientes:</h3>
+                <input type = "text" placeholder = "Nombre" name="DatoCliente"></p>
+                <button type = "submit" value = "GestionBiblioteca">Buscar</button>
+            </form>
+            <form action="/DatoProveedor/" method="get" target ="_parent">
+                <h3>Nombre Proveedor</h3>
+                <input type = "text" placeholder = "Nombre"  name="DatoProveedor"></p>
+                <button type = "submit" value = "GestionBiblioteca">Buscar</button>
+            </form>
+            <form action="/DatoBiblioteca/" method="get" target ="_parent">
+                <h3>Nombre Documento</h3>
+                <input type = "text" placeholder = "Nombre" name="DatoBiblioteca"></p>
+                <button type = "submit" value = "GestionBiblioteca">Buscar</button>
+            </form>
+            <form action="/DatoVenta/" method="get" target ="_parent">
+                <h3>Id Venta</h3>
+                <input type = "text" placeholder = "id" name="DatoVenta"></p>
+                <button type = "submit" value = "GestionBiblioteca">Buscar</button>
+            </form>
+            <form action="/DatoSuscripcion/" method="get" target ="_parent">
+                <h3>Id Suscripcion</h3>
+                <input type = "text" placeholder = "id" name="DatoSuscripcion"></p>
+                <button type = "submit" value = "GestionBiblioteca">Buscar</button>
+            </form>
+        </section>
+		
+{% endblock %}

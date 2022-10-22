@@ -1,0 +1,24 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Datos Cliente {% endblock %}
+
+{% block content %}
+
+    <section id="login">
+        <h1>DATO BUSCADO EN BIBLIOTECA</h1>
+            <h2>{{query}}</h2>
+            {% if Cliente or  Proveedor or Biblioteca or Venta or Suscripcion or Revista %}
+                <h3>{{Cliente}}</h3>
+                <h3>{{Proveedor}}</h3>
+                <h3>{{Biblioteca}}</h3>
+                <h3>{{Revista}}</h3>
+                <h3>{{Venta}}</h3>
+                <h3>{{Suscripcion}}</h3>
+            {% else%}
+                <h3>No se encontro dato</h3>
+            {% endif %}
+
+    </section>
+    
+{% endblock %}

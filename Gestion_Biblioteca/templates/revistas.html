@@ -1,0 +1,44 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Revistas {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <header>
+                <h2>Revistas-Generos</h2>
+            </header>
+            <strong>
+                <blockquote>Moda</blockquote>
+                <blockquote>Cocina</blockquote>
+                <blockquote>Automoviles</blockquote>
+                <blockquote>Deportes</blockquote>
+                <blockquote>Farandula</blockquote>
+                <blockquote>Tecnologicos</blockquote>
+                <blockquote>Educativo</blockquote>
+                <blockquote>Infantiles</blockquote>
+            </strong>
+        </div>  
+
+        <div class="container col-sm-8">
+            <div>
+            <div class="row">
+                {% for producto in revistas %}
+                <div class="card" style="width:100; margin: 5px 5px; text-align:center; display:inline-table" >
+                    <img src="{{producto.Imagen.url}}" class="card-img-top" width="180" height="200"/>
+                    <div class="card-body">
+                        <h6>{{producto.Nombre}}</h6>
+                        <p>{{producto.PrecioSuscripcion}}</p>
+                        <a class="btn btn-primary bg-success" href="{% url 'carro:agregarsuscrip' producto.id %}">suscribirse</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

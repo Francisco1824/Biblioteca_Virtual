@@ -1,0 +1,27 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Carrito de compras {% endblock %}
+
+{% block content %}
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <header>
+                <h2>Carrito De compras</h2>
+            </header>
+            <strong>
+                <blockquote>Documentos</blockquote>
+                
+            </strong>
+        </div>  
+
+        <div class="col-sm-6 t">
+            <div style="float: center;">
+            
+                {% include "carrito.html" %}
+            </div>
+        </div>
+
+{% endblock %}

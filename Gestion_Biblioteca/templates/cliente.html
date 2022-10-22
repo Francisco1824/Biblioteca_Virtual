@@ -1,0 +1,38 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Cliente {% endblock %}
+
+{% block content %}
+
+<div class="container ">
+    <div class="row">
+        <div class="col-sm-12 ">
+            <form method="post" action="" class="form-group ">{% csrf_token %}
+                <p><label>NOMBRE: </label><input type="text" class="form-control mb-2 mr-sm-2" name="NombreCliente" id="buscar"></p>
+
+                <p><label>APELLIDO:</label><input type="text" class="form-control mb-2 mr-sm-2" name="ApellidoCliente" id="buscar"></p>
+
+                <p><label>EDAD:</label><input type="number" class="form-control mb-2 mr-sm-2" name="EdadCliente" id="buscar"></p>
+                
+                <p><label>DNI:</label><input type="text" class="form-control mb-2 mr-sm-2" name="DNICliente" id="buscar"></p>
+                
+                <p><label>N° DNI:</label><input type="number" class="form-control mb-2 mr-sm-2" name="NumDNICliente" id="buscar"></p>
+                
+                <p><label>EMAIL:</label><input type="email" class="form-control mb-2 mr-sm-2" name="EmailCliente" id="buscar"></p>
+                
+                <p><label>PAIS:</label><input type="text" class="form-control mb-2 mr-sm-2" name="PaisCliente" id="buscar"></p>
+                
+                <p><label>CIUDAD:</label><input type="text" class="form-control mb-2 mr-sm-2" name="CiudadCliente" id="buscar"></p>
+                
+                <p><label>DIRECCION:</label><input type="text" class="form-control mb-2 mr-sm-2" name="DireccionCliente" id="buscar"></p>
+                
+                <p><label>TELEFONO:</label><input type="number" class="form-control mb-2 mr-sm-2" name="TelefonoCliente" id="buscar" ></p>
+            
+                <button type="submit" class="btn btn-primary bg-success"  value="Registrarse">Registrate</button>
+            </form>
+        <div>
+    <div>
+<div>
+
+{% endblock %}

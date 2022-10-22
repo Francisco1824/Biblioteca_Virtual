@@ -1,0 +1,28 @@
+{% extends "Biblioteca.html" %}
+{% load static %}
+
+{% block title %} Suscripciones {% endblock %}
+
+{% block content %}
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <header>
+                <h2>Suscripciones</h2>
+            </header>
+            <strong>
+                <blockquote>Revista</blockquote>
+            </strong>
+        </div>  
+
+        <div class="col-sm-8">
+            <div style="float: center;">
+                    
+                {% include "archivero.html" %}
+            </div>
+        </div>
+    </div>
+<div>
+
+{% endblock %}

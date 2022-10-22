@@ -1,0 +1,55 @@
+<table border="1" style="color: brown;">
+    
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center"><br/>Archivero de Suscripciones<br/><br/></th>
+        </tr>
+        <tr>
+            <th><br/>Documento<br/><br/></th>
+            <th><br/>Cantidad<br/><br/></th>
+            <th><br/>Subtotal<br/><br/></th>
+        </tr>
+    </thead>
+
+    <tbody style="color: brown;">
+        {% if request.session.suscrip.items %}
+            {% for key, value in request.session.suscrip.items %}
+                <tr style="text-align: center;">
+                    <td><h5>{{value.nombre}}</h5></td>
+                    <td>{{value.cantidad}}</td> 
+                    <td><br/>
+                        <a class="btn btn-primary bg-success" href="{% url 'carro:sumarsuscrip' value.producto_id %}">+</a> 
+                        <a class="btn btn-primary bg-success" href="{% url 'carro:restarsuscrip' value.producto_id %}">-</a><br/><br/>
+                        {{value.precio}}
+                    </td>                 
+                </tr>
+            {% endfor %}
+        {% else %}
+           <tr>
+                <td colspan="3">
+                    <div class="alert alert-danger" style="text-align: center;" >
+                        Sin revistas agregados
+                    </div>
+
+                </td>
+           </tr> 
+        {% endif %}
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: ${{importe_total_suscrip}}
+            </td>
+        </tr>
+        {% if request.session.suscrip.items %}
+        <tr>
+            <td colspan="3" style="text-align: center ;">
+                <br/><a class="btn btn-primary bg-success"  href="{% url 'procesar_suscrip' %}">Hacer suscripcion</a><br/><br/>
+            </td>
+        </tr>
+        {% endif %}
+    </tfoot>
+
+</table><br/><br/>
+

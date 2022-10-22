@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html >
+<html lang = "es" translate="yes" >
+	<head>
+		<meta charset = "iso-8559-1"/>
+		<meta name ="description" content = "App Web de Biblioteca" />
+		<meta name = "keywords" content = "Libros, Revistas, Iconogramas, Monogramas, Ensayos, Investigaciones" />
+
+		<title>
+			{% block title %} {% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	</head>
+
+    <body>
+		
+		<div>
+			<figure style="text-align: center;">
+				<a title="Inicio" href="{% url 'home' %}"><img src = "https://github.com/Francisco1824/imagenes/blob/master/inicio.png?raw=true" alt="Inicio" width="1000" height="80"/></a>
+			</figure>
+			<nav style="text-align: right; margin-right: 100px ">
+				{% if user.is_authenticated %}
+					<h2>Bienvenido {{ user.username }}</h2>
+					<a title="Salir" href="{% url 'Cerrar_Sesion' %}"><img src = "https://github.com/Francisco1824/imagenes/blob/master/salir.png?raw=true" alt="Salir" width="30" height="30" /></a>
+				{% else %}
+					<a title="Login" href="/autenticacion/Login"><img src = "https://github.com/Francisco1824/imagenes/blob/master/User.png?raw=true" alt="Login" width="30" height="30" /></a>
+					<a href="/autenticacion">Registrate</a>
+
+				{% endif %}
+			</nav>
+		</div>
+
+		<div>
+			<nav class= "bg-success">
+					
+				<nav class="navbar navbar-expand-sm justify-content-center ">
+					<ul class="navbar-nav">
+						<li class="nav-item "><a class="nav-link text-white" href="{% url 'home' %}" >Inicio</a></li>
+						<li class="nav-item"><a class="nav-link text-white" href="{% url 'libros' %}" >Libros</a></li>
+						<li class="nav-item"><a class="nav-link text-white" href="{% url 'revistas' %}">Revistas</a></li>
+						{% if user.is_authenticated %}
+						<li class="nav-item"><a class="nav-link text-white" href="{% url 'iconograficos' %}">Iconograficos</a></li>
+						<li class="nav-item"><a class="nav-link text-white" href="{% url 'inv_ens' %}">Investigaciones-Ensayos</a></li>
+						<li class="nav-item"><a class="nav-link text-white" href="{% url 'registrarse' %}" >Cliente</a></li>
+						{% endif %}					
+					</ul>
+					
+				</nav>
+				
+				<nav style="text-align: right;">
+					{% if request.session.carro.items %}
+						<a title="Carrito" href="{% url 'venta' %}">
+							<li><img src = "https://github.com/Francisco1824/imagenes/blob/master/carrito_compras.png?raw=true" alt="Carrito" width="30" height="30"/></li>
+						</a>
+											
+					{% endif %}	
+
+					{% if request.session.suscrip.items %}
+						<a title="Suscripcion" href="{% url 'suscripcion' %}">
+							<li><img src = "https://github.com/Francisco1824/imagenes/blob/master/Suscripcion.jpg?raw=true" alt="Suscripcion" width="30" height="30"/></li>
+						</a>
+											
+					{% endif %}
+											
+					<ul>
+						<img src = "https://github.com/Francisco1824/imagenes/blob/master/Espanol.png?raw=true" width="30" height="30" />
+						<img src = "https://github.com/Francisco1824/imagenes/blob/master/Ingles.png?raw=true" width="30" height="30"/> 
+					</ul>
+				</nav>				
+			</nav>
+		</div>
+
+		<div class="col-sm-12">
+			<form action="/DatoBiblioteca/" method="get" target ="_parent" style="text-align: right;">
+				<input type = "text" placeholder = "Libros, revistas" name="DatoBiblioteca" style="border-radius: 15px;">
+				<button type = "submit" class="btn btn-primary bg-success" value = "GestionBiblioteca">Buscar</button>
+			</form>
+		</div>
+
+
+		{% block content %}
+
+        {% endblock %}	
+		
+		<div class="col-sm-12 text-white " style = "background-color:rgb(6, 75, 6)">
+			<small>Derechos reservados</small>
+			<nav style="text-align: right " >
+				<a title="Facebook" href="https://web.facebook.com/login/device-based/regular/login/" >
+					<img src = "https://github.com/Francisco1824/imagenes/blob/master/facebook.png?raw=true" alt="Facebook" width="30" height="30" style="margin-right: 50px "/>					
+				</a>
+				<a title="Whatsapp" href="https://web.whatsapp.com/">
+					<img src = "https://github.com/Francisco1824/imagenes/blob/master/whatsapp.png?raw=true" alt="Whatsapp" width="35" height="35" style="margin-right: 50px " />					
+				</a>
+					<img src = "https://github.com/Francisco1824/imagenes/blob/master/gmail.png?raw=true" width="30" height="30" style="margin-right: 50px " />
+			</nav>
+				            
+		</div>
+
+	</body>
+
+</html>
