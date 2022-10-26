@@ -19,7 +19,7 @@ class Suscrip:
                 "nombre": producto.Nombre,
                 "precio": str ( producto.PrecioSuscripcion ),
                 "cantidad": 1,
-                "imagen": producto.Imagen.url
+                "imagen": producto.Imagen
             }       
         else:
             for key, value in self.suscrip.items ():
