@@ -19,7 +19,7 @@ class Carro:
                 "nombre": producto.Nombre,
                 "precio": str(producto.PrecioVenta),
                 "cantidad": 1,
-                "imagen": producto.Imagen.url
+                "imagen": producto.Imagen
             }       
         else:
             for key, value in self.carro.items():
